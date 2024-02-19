@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    padding: 25px;
+}
+
+.container {
+    position: relative;
+    height: 500px;
+    width: 500px;
+    overflow: hidden;
+}
+
+.container .images {
+    position: relative;
+    display: flex;
+    left: 0;
+}
+
+.container .images img {
+    position: absolute;
+    width: 500px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: center;
+}
+
+.container .controls > div {
+    position: absolute;
+    top: 0;
+    width: 50px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    transition: background-color 100ms ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.container .controls > div::after {
+    content: '';
+    display: block;
+    position: relative;
+    height: 25px;
+    width: 25px;
+    border-top: 5px solid white;
+    border-right: 5px solid white;
+    box-sizing: border-box;
+}
+
+.container .controls > div:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.container .controls .left {
+    left: 0;
+}
+
+.container .controls .left::after {
+    rotate: 225deg;
+}
+
+.container .controls .right::after {
+    rotate: 45deg;
+}
+
+.container .controls .right {
+    right: 0;
+}
