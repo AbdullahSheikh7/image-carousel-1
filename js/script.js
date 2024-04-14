@@ -13,7 +13,7 @@ const editSlides = () => {
         e.style.display = "none";
     });
 
-    if (slide == 0) {
+    if (slide <= 0) {
         slides[slides.length - 1].style.display = "";
         slides[slides.length - 1].style.left = "-100%";
 
@@ -22,7 +22,7 @@ const editSlides = () => {
 
         slides[slide + 1].style.display = "";
         slides[slide + 1].style.left = "100%";
-    } else if (slide == 9) {
+    } else if (slide >= (slides.length - 1)) {
         slides[slide - 1].style.display = "";
         slides[slide - 1].style.left = "-100%";
         
@@ -47,7 +47,7 @@ btnLeft.addEventListener("click", (e) => {
     if (click == true) {
         slide -= 1;
         if (slide < 0) {
-            slide = 9;
+            slide = slides.length - 1;
         }
         slides[0].parentElement.style.transition = "left 500ms ease-in-out";
         slides[0].parentElement.style.left = "100%";
@@ -64,7 +64,7 @@ btnLeft.addEventListener("click", (e) => {
 btnRight.addEventListener("click", (e) => {
     if (click == true) {
         slide += 1;
-        if (slide > 9) {
+        if (slide > (slides.length - 1)) {
             slide = 0;
         }
         slides[0].parentElement.style.transition = "left 500ms ease-in-out";
